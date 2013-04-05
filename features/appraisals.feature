@@ -89,3 +89,12 @@ Feature: run a rake task through several appraisals
     And a file named "gemfiles/1.3.0.gemfile.lock" should not exist
     And a file named "gemfiles/1.3.2.gemfile" should not exist
     And a file named "gemfiles/1.3.2.gemfile.lock" should not exist
+
+  @announce
+  Scenario: install gems within groups
+    Then the file "gemfiles/1.3.0.gemfile" should contain:
+      """
+      group :assets do
+        gem "dummy_sass", "~> 3.1.0"
+      end
+      """

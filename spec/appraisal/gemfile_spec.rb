@@ -27,4 +27,15 @@ describe Appraisal::Gemfile do
     gemfile.source :one
     gemfile.to_s.strip.should == %{source :one}
   end
+
+  it 'supports group syntax' do
+    gemfile = Appraisal::Gemfile.new
+
+    gemfile.group :development, :test do
+      gem 'one'
+    end
+
+    gemfile.to_s.strip.should =~ /group :development, :test do/
+    gemfile.to_s.strip.should =~ /gem 'one'/
+  end
 end

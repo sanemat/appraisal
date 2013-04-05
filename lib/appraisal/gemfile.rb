@@ -1,5 +1,6 @@
 require 'appraisal/dependency'
 require 'appraisal/gemspec'
+require 'appraisal/group'
 
 module Appraisal
   # Load bundler Gemfiles and merge dependencies
